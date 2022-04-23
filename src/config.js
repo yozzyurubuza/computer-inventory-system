@@ -99,9 +99,7 @@ export const BUTTON_FUNCTIONS = [
   },
   {
     button_name: "View Inventory",
-    button_function() {
-      console.log("View Inventory?....");
-    },
+    button_function() {},
   },
   {
     button_name: "Logout",

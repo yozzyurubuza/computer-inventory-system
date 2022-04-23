@@ -1,8 +1,8 @@
 import React from "react";
-import { getButtonFunction, getButtonList } from "../helper.js";
+import { getButtonList } from "../helper.js";
 import "../css/Buttons.css";
 
-const Buttons = ({ account_type, loginHandler }) => {
+const Buttons = ({ account_type, loginHandler, BUTTON_FUNCTIONS_MENU }) => {
   //Find what buttons to generate depending on the account type (user / admin)
   const getButtons = getButtonList(account_type);
 
@@ -11,8 +11,11 @@ const Buttons = ({ account_type, loginHandler }) => {
   const generateButtons = getButtons.map((getButton, i) => {
     //Find and assign the function of the button
 
-    const buttonFunction =
-      getButton === "Logout" ? loginHandler : getButtonFunction(getButton);
+    const findFunction = BUTTON_FUNCTIONS_MENU.find(
+      (button) => button.button_name === getButton
+    ).button_function;
+
+    const buttonFunction = getButton === "Logout" ? loginHandler : findFunction;
 
     return (
       <button
