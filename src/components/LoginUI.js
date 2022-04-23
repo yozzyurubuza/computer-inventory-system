@@ -72,6 +72,12 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       },
     },
     {
+      button_name: "View User List",
+      button_function() {
+        console.log("View User List?....");
+      },
+    },
+    {
       button_name: "Logout",
       button_function() {
         console.log("Logging out....");

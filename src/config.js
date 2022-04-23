@@ -37,6 +37,7 @@ export const BUTTON_MENU = [
       "Assign Role",
       "Upload Image to Item",
       "View Inventory",
+      "View User List",
       "Logout",
     ],
   },
