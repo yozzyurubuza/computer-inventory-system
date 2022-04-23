@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from "react";
+import { ACCOUNTS } from "../config";
 import "../css/Login.css";
 
-const Login = () => {
-  const [count, setCount] = useState(0);
-
+const Login = ({ loginHandler }) => {
   const onLogin = (e) => {
     e.preventDefault();
-    console.log("Logging in....");
+
+    // Check if user account exists, return object if found.
+    const checkUser = ACCOUNTS.find(
+      (account) => account?.username === e.target.user.value
+    );
+
+    if (!checkUser) return alert("Account not found!");
+    if (checkUser?.password !== e.target.pass.value)
+      return alert("Incorrect Password!");
+
+    //Return Full account details as object
+    loginHandler(checkUser);
+    return alert("Logging in...");
   };
 
   return (
     <div className="ui container">
-      <form className="ui form login ui segment" onSubmit={onLogin}>
+      <form
+        className="ui form login ui segment"
+        onSubmit={onLogin}
+        method="POST"
+      >
         <h1>Computer Parts & Supplies</h1>
         <label>Username: </label>
-        <input type="text"></input>
+        <input type="text" name="user"></input>
         <label>Password: </label>
-        <input type="text"></input>
+        <input type="password" name="pass"></input>
         <button className="ui button">Login</button>
       </form>
     </div>
