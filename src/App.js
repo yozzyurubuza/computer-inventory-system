@@ -6,16 +6,29 @@ const App = () => {
   const [renderLogin, setRenderLogin] = useState(true);
   const [accountDetails, setAccountDetails] = useState({});
 
-  const loginHandler = (accountDetails) => {
-    setRenderLogin(false);
+  const loginHandler = () => {
+    setRenderLogin(!renderLogin);
+    console.log(renderLogin);
+  };
+
+  const accountHandler = (accountDetails) => {
     setAccountDetails(accountDetails);
   };
 
   return (
     <div>
-      <div>{renderLogin ? <Login loginHandler={loginHandler} /> : null}</div>
       <div>
-        {!renderLogin ? <LoginUI accountDetails={accountDetails} /> : null}
+        {renderLogin ? (
+          <Login accountHandler={accountHandler} loginHandler={loginHandler} />
+        ) : null}
+      </div>
+      <div>
+        {!renderLogin ? (
+          <LoginUI
+            accountDetails={accountDetails}
+            loginHandler={loginHandler}
+          />
+        ) : null}
       </div>
     </div>
   );

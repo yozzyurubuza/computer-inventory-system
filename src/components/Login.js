@@ -2,7 +2,7 @@ import React from "react";
 import { ACCOUNTS } from "../config";
 import "../css/Login.css";
 
-const Login = ({ loginHandler }) => {
+const Login = ({ loginHandler, accountHandler }) => {
   const onLogin = (e) => {
     e.preventDefault();
 
@@ -16,7 +16,8 @@ const Login = ({ loginHandler }) => {
       return alert("Incorrect Password!");
 
     //Return Full account details as object
-    loginHandler(checkUser);
+    accountHandler(checkUser);
+    loginHandler();
     console.log(checkUser);
     return alert("Logging in...");
   };

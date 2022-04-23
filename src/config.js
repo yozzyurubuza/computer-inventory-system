@@ -24,12 +24,7 @@ export const ACCOUNTS = [
 export const BUTTON_MENU = [
   {
     account_type: "user",
-    button_list: [
-      "Register New User",
-      "Update User",
-      "View Inventory",
-      "Logout",
-    ],
+    button_list: ["Update User Details", "View Inventory", "Logout"],
   },
   {
     account_type: "admin",
@@ -48,6 +43,18 @@ export const BUTTON_MENU = [
 ];
 
 export const BUTTON_FUNCTIONS = [
+  {
+    button_name: "Update User Details",
+    button_function() {
+      console.log("Update User Details?....");
+    },
+  },
+  {
+    button_name: "Activate Account",
+    button_function() {
+      console.log("Activate Account?....");
+    },
+  },
   {
     button_name: "Activate Account",
     button_function() {

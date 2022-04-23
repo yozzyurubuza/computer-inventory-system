@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import "../css/LoginUI.css";
 import Inventory from "./Inventory";
 
-const LoginUI = ({ accountDetails }) => {
+const LoginUI = ({ accountDetails, loginHandler }) => {
   const [buttonFunc, setButtonFunc] = useState("");
 
   return (
@@ -12,7 +12,10 @@ const LoginUI = ({ accountDetails }) => {
         <div className="ui row">
           <div className="four wide column">
             <div className="ui segment menu">
-              <Menu accountDetails={accountDetails} />
+              <Menu
+                accountDetails={accountDetails}
+                loginHandler={loginHandler}
+              />
             </div>
           </div>
           <div className="twelve wide column min-margin">
