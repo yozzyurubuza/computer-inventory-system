@@ -15,7 +15,7 @@ const Inventory = () => {
   });
 
   return (
-    <div style={{ maxHeight: "200px", overflowY: "scroll" }}>
+    <div className="table-scroll">
       <table className="ui unstackable table">
         <thead>
           <tr>

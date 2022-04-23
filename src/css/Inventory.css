@@ -1,0 +1,9 @@
+.table-scroll {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+th {
+  position: sticky;
+  top: 0;
+}
