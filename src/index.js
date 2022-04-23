@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./css/index.css";
 
-ReactDOM.createRoot(document.querySelector("#root")).render(<App tab="home" />);
+createRoot(document.querySelector("#root")).render(<App tab="home" />);

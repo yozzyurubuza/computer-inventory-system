@@ -1,0 +1,7 @@
+.background-style {
+  background-image: url(../../images/ro_109_1920.png);
+  object-fit: fill;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
