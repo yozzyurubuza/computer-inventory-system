@@ -11,12 +11,12 @@ const LoginUI = ({ accountDetails }) => {
       <div className="ui grid">
         <div className="ui row">
           <div className="four wide column">
-            <div className="ui segment">
+            <div className="ui segment menu">
               <Menu accountDetails={accountDetails} />
             </div>
           </div>
-          <div className="twelve wide column">
-            <div className="ui segment">
+          <div className="twelve wide column min-margin">
+            <div className="ui segment new-components">
               <Inventory />
             </div>
           </div>

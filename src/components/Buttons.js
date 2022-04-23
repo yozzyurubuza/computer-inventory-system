@@ -13,7 +13,7 @@ const Buttons = ({ account_type }) => {
       {/* Generate buttons according to account type */}
       {getButtons.map((button, i) => {
         return (
-          <button key={"B_" + i} className="ui basic button bgcolor">
+          <button key={"B_" + i} className="ui fluid basic button bgcolor">
             {button}
           </button>
         );

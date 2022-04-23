@@ -1,1 +1,9 @@
+.ui.segment.menu {
+  min-width: 130px;
+  max-width: 200px;
+  padding-right: 14px;
+}
 
+.twelve.column.wide.min-margin {
+  padding-left: min(10px, 2%);
+}
