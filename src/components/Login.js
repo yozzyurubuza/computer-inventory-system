@@ -17,6 +17,7 @@ const Login = ({ loginHandler }) => {
 
     //Return Full account details as object
     loginHandler(checkUser);
+    console.log(checkUser);
     return alert("Logging in...");
   };
 

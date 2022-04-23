@@ -46,3 +46,36 @@ export const BUTTON_MENU = [
     ],
   },
 ];
+
+export const INVENTORY_LIST = [
+  {
+    item_id: 0,
+    item_image: "",
+    item_name: "Mouse",
+    quantity: 10,
+  },
+  {
+    item_id: 1,
+    item_image: "",
+    item_name: "Keyboard",
+    quantity: 10,
+  },
+  {
+    item_id: 2,
+    item_image: "",
+    item_name: "Monitor",
+    quantity: 10,
+  },
+  {
+    item_id: 3,
+    item_image: "",
+    item_name: "Speakers",
+    quantity: 10,
+  },
+  {
+    item_id: 4,
+    item_image: "",
+    item_name: "Casing",
+    quantity: 0,
+  },
+];

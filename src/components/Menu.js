@@ -7,7 +7,7 @@ const Menu = ({ accountDetails }) => {
     <div>
       <div className="ui top attached label greeting-msg">{`Hello, ${accountDetails.username}`}</div>
       <div>
-        <Buttons />
+        <Buttons account_type={accountDetails.account_type} />
       </div>
     </div>
   );
