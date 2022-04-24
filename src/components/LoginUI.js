@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import Table from "./Table";
+import Create from "./Create";
 
 import { INVENTORY_LIST, ACCOUNTS } from "../config";
 import "../css/LoginUI.css";
@@ -8,6 +9,7 @@ import "../css/LoginUI.css";
 const LoginUI = ({ accountDetails, loginHandler }) => {
   const [displayComp, setDisplayComp] = useState(false);
   const [tableItems, setTableItems] = useState([{}]);
+  const [displayInnerComp, setDisplayInnerComp] = useState(false);
 
   const displayCompHandler = () => {
     setDisplayComp(!displayComp);
@@ -15,6 +17,14 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
 
   const setTable = (table) => {
     setTableItems(table);
+  };
+
+  const displayComponent = (string) => {
+    if (string === "table") return <Table tableArray={tableItems} />;
+
+    if (string === "create") return <Create />;
+
+    return null;
   };
 
   const BUTTON_FUNCTIONS_MENU = [
@@ -31,15 +41,15 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       },
     },
     {
-      button_name: "Activate Account",
+      button_name: "Activate Inventory Items",
       button_function() {
-        console.log("Activate Account?....");
+        console.log("Activate Inventory Items?....");
       },
     },
     {
       button_name: "Create Item",
       button_function() {
-        console.log("Create Item?....");
+        setDisplayInnerComp("create");
       },
     },
     {
@@ -76,6 +86,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_name: "View Inventory",
       button_function() {
         if (!displayComp) displayCompHandler();
+        setDisplayInnerComp("table");
         setTable(INVENTORY_LIST);
       },
     },
@@ -83,6 +94,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_name: "View User List",
       button_function() {
         if (!displayComp) displayCompHandler();
+        setDisplayInnerComp("table");
         setTable(ACCOUNTS);
       },
     },
@@ -109,7 +121,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
           <div className="twelve wide column min-margin">
             {displayComp ? (
               <div className="ui segment new-components">
-                <Table tableArray={tableItems} />
+                {displayComponent(displayInnerComp)}
               </div>
             ) : null}
           </div>
