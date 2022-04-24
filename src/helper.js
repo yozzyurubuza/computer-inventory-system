@@ -17,7 +17,6 @@ export const getButtonFunction = (menuButton) => {
   return findFunction;
 };
 
-//Limited to two words
 export const formatKeysForThead = (object) => {
   const thead = Object.keys(object);
   const formatString = thead.map((text) => {
@@ -46,4 +45,10 @@ export const formatKeysForThead = (object) => {
   });
 
   return formatString;
+};
+
+export const getTableData = (object) => {
+  const tdata = Object.values(object);
+
+  return tdata;
 };

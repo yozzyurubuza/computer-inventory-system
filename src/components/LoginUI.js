@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
-import "../css/LoginUI.css";
 import Inventory from "./Inventory";
+
+import { INVENTORY_LIST, ACCOUNTS } from "../config";
+import "../css/LoginUI.css";
 
 const LoginUI = ({ accountDetails, loginHandler }) => {
   const [displayComp, setDisplayComp] = useState(false);
+  const [displayTable, setDisplayTable] = useState([{}]);
 
   const displayCompHandler = () => {
     setDisplayComp(!displayComp);
+  };
+
+  const setTable = (table) => {
+    setDisplayTable(table);
   };
 
   const BUTTON_FUNCTIONS_MENU = [
@@ -68,13 +75,15 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
     {
       button_name: "View Inventory",
       button_function() {
-        displayCompHandler();
+        if (!displayComp) displayCompHandler();
+        setTable(INVENTORY_LIST);
       },
     },
     {
       button_name: "View User List",
       button_function() {
-        console.log("View User List?....");
+        if (!displayComp) displayCompHandler();
+        setTable(ACCOUNTS);
       },
     },
     {
@@ -101,7 +110,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
           <div className="twelve wide column min-margin">
             {displayComp ? (
               <div className="ui segment new-components">
-                <Inventory />
+                <Inventory tableArray={displayTable} />
               </div>
             ) : null}
           </div>
