@@ -16,3 +16,34 @@ export const getButtonFunction = (menuButton) => {
 
   return findFunction;
 };
+
+//Limited to two words
+export const formatKeysForThead = (object) => {
+  const thead = Object.keys(object);
+  const formatString = thead.map((text) => {
+    let checkWord = text.includes("_") ? text.replace("_", " ") : text;
+
+    //Check if word has "ID" in the second word
+    if (checkWord.slice(-2) !== "id" && !checkWord.includes(" "))
+      return checkWord[0].toUpperCase() + checkWord.slice(1);
+
+    if (checkWord.slice(-2) !== "id" && checkWord.includes(" ")) {
+      const splitWord = checkWord.split(" ");
+      const setUpper = splitWord.map(
+        (word) => word[0].toUpperCase() + word.slice(1)
+      );
+      return setUpper.join(" ");
+    }
+
+    if (checkWord.slice(-2) === "id")
+      return (
+        checkWord[0].toUpperCase() +
+        checkWord.slice(1, -2) +
+        checkWord.slice(-2).toUpperCase()
+      );
+
+    return checkWord;
+  });
+
+  return formatString;
+};

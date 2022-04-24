@@ -1,11 +1,25 @@
 import React from "react";
 import { INVENTORY_LIST } from "../config";
+import { formatKeysForThead } from "../helper";
 import "../css/Inventory.css";
 
 const Inventory = () => {
-  const generateInventory = INVENTORY_LIST.map((item, i) => {
+  const generateTableHeading = formatKeysForThead(INVENTORY_LIST[0]).map(
+    (header, i, array) => {
+      return (
+        <th
+          key={"TH_" + i}
+          className={i === array.length - 1 ? "right aligned" : ""}
+        >
+          {header}
+        </th>
+      );
+    }
+  );
+
+  const generateTableBody = INVENTORY_LIST.map((item, i) => {
     return (
-      <tr key={"I_" + i}>
+      <tr key={"TD_" + i}>
         <td>{item.item_id}</td>
         <td>{item.item_image}</td>
         <td>{item.item_name}</td>
@@ -18,14 +32,9 @@ const Inventory = () => {
     <div className="table-scroll">
       <table className="ui unstackable table">
         <thead>
-          <tr>
-            <th>Item ID</th>
-            <th>Image</th>
-            <th>Item Name</th>
-            <th className="right aligned">Quantity</th>
-          </tr>
+          <tr>{generateTableHeading}</tr>
         </thead>
-        <tbody>{generateInventory}</tbody>
+        <tbody>{generateTableBody}</tbody>
       </table>
     </div>
   );
