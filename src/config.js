@@ -40,6 +40,12 @@ export const ACCOUNTS = [
     activated: false,
     account_type: "user",
   },
+  {
+    username: "myuser",
+    password: "1234",
+    activated: false,
+    account_type: "user",
+  },
 ];
 
 export const BUTTON_MENU = [
@@ -64,7 +70,6 @@ export const BUTTON_MENU = [
     ],
   },
 ];
-
 
 export const INVENTORY_LIST = [
   {
@@ -136,5 +141,19 @@ export const INVENTORY_LIST = [
     item_name: "Lian Li Casing",
     active: false,
     quantity: 0,
+  },
+];
+
+export const DISPLAY_ACTION = [
+  {
+    action_name: "Activate Account",
+    display() {
+      return (
+        <select name="activate">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      );
+    },
   },
 ];

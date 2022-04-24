@@ -52,3 +52,36 @@ export const getTableData = (object) => {
 
   return tdata;
 };
+
+export const identifyTable = (compName) => {
+  const account_terms = ["Account", "Role"];
+  const inventory_terms = ["Item", "Items"];
+
+  if (compName.split(" ").some((term) => account_terms.includes(term)))
+    return "Account";
+
+  if (compName.split(" ").some((term) => inventory_terms.includes(term)))
+    return "Inventory";
+
+  return null;
+};
+
+export const searchFunctions = (e, compName, searchData) => {
+  const identifier = identifyTable(compName);
+
+  if (identifier === "Account") {
+    const findData = searchData.find(
+      (data) => data.username === e.target.search.value
+    );
+    return findData;
+  }
+
+  if (identifier === "Inventory") {
+    const findData = searchData.find(
+      (data) => data.item_name === e.target.search.value
+    );
+    return findData;
+  }
+
+  return null;
+};
