@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
-import Inventory from "./Inventory";
+import Table from "./Table";
 
 import { INVENTORY_LIST, ACCOUNTS } from "../config";
 import "../css/LoginUI.css";
 
 const LoginUI = ({ accountDetails, loginHandler }) => {
   const [displayComp, setDisplayComp] = useState(false);
-  const [displayTable, setDisplayTable] = useState([{}]);
+  const [tableItems, setTableItems] = useState([{}]);
 
   const displayCompHandler = () => {
     setDisplayComp(!displayComp);
   };
 
   const setTable = (table) => {
-    setDisplayTable(table);
+    setTableItems(table);
   };
 
   const BUTTON_FUNCTIONS_MENU = [
@@ -89,7 +89,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
     {
       button_name: "Logout",
       button_function() {
-        console.log("Logging out....");
+        loginHandler();
       },
     },
   ];
@@ -102,7 +102,6 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
             <div className="ui segment menu">
               <Menu
                 accountDetails={accountDetails}
-                loginHandler={loginHandler}
                 BUTTON_FUNCTIONS_MENU={BUTTON_FUNCTIONS_MENU}
               />
             </div>
@@ -110,7 +109,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
           <div className="twelve wide column min-margin">
             {displayComp ? (
               <div className="ui segment new-components">
-                <Inventory tableArray={displayTable} />
+                <Table tableArray={tableItems} />
               </div>
             ) : null}
           </div>

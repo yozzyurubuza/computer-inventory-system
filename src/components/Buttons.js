@@ -2,7 +2,7 @@ import React from "react";
 import { getButtonList } from "../helper.js";
 import "../css/Buttons.css";
 
-const Buttons = ({ account_type, loginHandler, BUTTON_FUNCTIONS_MENU }) => {
+const Buttons = ({ account_type, BUTTON_FUNCTIONS_MENU }) => {
   //Find what buttons to generate depending on the account type (user / admin)
   const getButtons = getButtonList(account_type);
 
@@ -14,13 +14,11 @@ const Buttons = ({ account_type, loginHandler, BUTTON_FUNCTIONS_MENU }) => {
       (button) => button.button_name === getButton
     ).button_function;
 
-    const buttonFunction = getButton === "Logout" ? loginHandler : findFunction;
-
     return (
       <button
         key={"B_" + i}
         className="ui fluid basic button bgcolor"
-        onClick={buttonFunction}
+        onClick={findFunction}
       >
         {getButton}
       </button>

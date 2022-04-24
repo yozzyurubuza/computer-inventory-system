@@ -1,8 +1,8 @@
 import React from "react";
 import { formatKeysForThead, getTableData } from "../helper";
-import "../css/Inventory.css";
+import "../css/Table.css";
 
-const Inventory = ({ tableArray }) => {
+const Table = ({ tableArray }) => {
   const generateTableHeading = formatKeysForThead(tableArray[0]).map(
     (header, i, array) => {
       return (
@@ -41,4 +41,4 @@ const Inventory = ({ tableArray }) => {
   );
 };
 
-export default Inventory;
+export default Table;
