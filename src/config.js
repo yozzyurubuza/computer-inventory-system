@@ -149,11 +149,18 @@ export const DISPLAY_ACTION = [
     action_name: "Activate Account",
     display() {
       return (
-        <select name="activate">
+        <select name="option">
           <option value="true">True</option>
           <option value="false">False</option>
         </select>
       );
+    },
+    action(searchData, searchRes, option) {
+      //SQL Script (Activate Account)
+      console.log("Activate/Deactivate Account");
+      // const activate = searchData.find((data) => data.username === searchRes);
+      // activate.active = option;
+      // return activate;
     },
   },
 ];

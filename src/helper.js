@@ -85,3 +85,15 @@ export const searchFunctions = (e, compName, searchData) => {
 
   return null;
 };
+
+export const getDisplayAction = (DISPLAY_ACTION, compName) => {
+  return DISPLAY_ACTION.find(
+    (action) => action.action_name === compName
+  ).display();
+};
+
+export const getActionFunc = (DISPLAY_ACTION, compName) => {
+  return DISPLAY_ACTION.find(
+    (action) => action.action_name === compName
+  ).action();
+};

@@ -6,6 +6,7 @@ import "../css/SearchApply.css";
 const SearchApply = ({ searchData, compName }) => {
   const [result, setResult] = useState(null);
   const [labelFound, setLabelFound] = useState("");
+  const [searchRes, setSearchRes] = useState("");
 
   const label = () => {
     const getTableType = identifyTable(compName);
@@ -16,6 +17,7 @@ const SearchApply = ({ searchData, compName }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setResult(searchFunctions(e, compName, searchData));
+    setSearchRes(e.target.search.value);
     label();
   };
 
@@ -36,7 +38,11 @@ const SearchApply = ({ searchData, compName }) => {
               <p>{labelFound} Found !!</p>
             </div>
             <div>
-              <Action searchData={result} compName={compName} />
+              <Action
+                searchData={searchData}
+                compName={compName}
+                searchRes={searchRes}
+              />
             </div>
           </div>
         )}
