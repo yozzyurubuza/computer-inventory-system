@@ -22,7 +22,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
   const displayComponent = (string) => {
     if (string === "table") return <Table tableArray={tableItems} />;
 
-    if (string === "create") return <Create />;
+    if (string === "create") return <Create inventoryList={INVENTORY_LIST}/>;
 
     return null;
   };
@@ -49,6 +49,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
     {
       button_name: "Create Item",
       button_function() {
+        if (!displayComp) displayCompHandler();
         setDisplayInnerComp("create");
       },
     },
