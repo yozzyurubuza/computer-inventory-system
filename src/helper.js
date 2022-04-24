@@ -1,5 +1,5 @@
 //Insert refactored functions here
-import { BUTTON_FUNCTIONS, BUTTON_MENU } from "./config";
+import { BUTTON_MENU } from "./config";
 
 export const getButtonList = (account_type) => {
   const getButtons = BUTTON_MENU.find(
@@ -10,7 +10,7 @@ export const getButtonList = (account_type) => {
 };
 
 export const getButtonFunction = (menuButton) => {
-  const findFunction = BUTTON_FUNCTIONS.find(
+  const findFunction = menuButton.find(
     (button) => button.button_name === menuButton
   ).button_function;
 

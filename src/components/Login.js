@@ -27,7 +27,7 @@ const Login = ({ loginHandler, accountHandler }) => {
       <form
         className="ui form login ui segment"
         onSubmit={onLogin}
-        method="POST"
+        method="GET"
       >
         <h1>Computer Parts & Supplies</h1>
         <label>Username: </label>

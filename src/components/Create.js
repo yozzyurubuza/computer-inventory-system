@@ -1,6 +1,6 @@
 import React from "react";
 
-const Create = ({ inventoryList }) => {
+const Create = ({ inventoryList, compName }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -22,7 +22,7 @@ const Create = ({ inventoryList }) => {
 
   return (
     <div>
-      <h1>Create New Item</h1>
+      <h1>{compName}</h1>
       <div>
         <form className="ui form" onSubmit={onSubmit} method="POST">
           <label>Item Name: </label>

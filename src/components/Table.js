@@ -2,7 +2,12 @@ import React from "react";
 import { formatKeysForThead, getTableData } from "../helper";
 import "../css/Table.css";
 
-const Table = ({ tableArray }) => {
+const Table = ({ tableArray, compName }) => {
+  const handleRowClick = (rowValue) => {
+    // console.log(rowValue);
+    return rowValue;
+  };
+
   const generateTableHeading = formatKeysForThead(tableArray[0]).map(
     (header, i, array) => {
       return (
@@ -26,17 +31,24 @@ const Table = ({ tableArray }) => {
       </td>
     ));
 
-    return <tr key={"TR_" + i}>{tableData}</tr>;
+    return (
+      <tr key={"TR_" + i} onClick={() => handleRowClick(items)}>
+        {tableData}
+      </tr>
+    );
   });
 
   return (
-    <div className="table-scroll">
-      <table className="ui unstackable table">
-        <thead>
-          <tr>{generateTableHeading}</tr>
-        </thead>
-        <tbody>{generateTableBody}</tbody>
-      </table>
+    <div>
+      <h1>{compName}</h1>
+      <div className="table-scroll">
+        <table className="ui unstackable table">
+          <thead>
+            <tr>{generateTableHeading}</tr>
+          </thead>
+          <tbody>{generateTableBody}</tbody>
+        </table>
+      </div>
     </div>
   );
 };

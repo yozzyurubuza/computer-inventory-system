@@ -2,27 +2,30 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 import Table from "./Table";
 import Create from "./Create";
+import SearchApply from "./SearchApply";
 
 import { INVENTORY_LIST, ACCOUNTS } from "../config";
 import "../css/LoginUI.css";
 
 const LoginUI = ({ accountDetails, loginHandler }) => {
   const [displayComp, setDisplayComp] = useState(false);
-  const [tableItems, setTableItems] = useState([{}]);
   const [displayInnerComp, setDisplayInnerComp] = useState(false);
+  const [props, setProps] = useState(null);
+  const [compName, setCompName] = useState("");
 
   const displayCompHandler = () => {
     setDisplayComp(!displayComp);
   };
 
-  const setTable = (table) => {
-    setTableItems(table);
-  };
+  //Function to know what component to display in the right side
+  const displayComponent = (string, props, compName) => {
+    if (string === "table") return <Table tableArray={props} />;
 
-  const displayComponent = (string) => {
-    if (string === "table") return <Table tableArray={tableItems} />;
+    if (string === "create")
+      return <Create inventoryList={props} compName={compName} />;
 
-    if (string === "create") return <Create inventoryList={INVENTORY_LIST}/>;
+    if (string === "search-apply")
+      return <SearchApply searchData={props} compName={compName} />;
 
     return null;
   };
@@ -37,7 +40,10 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
     {
       button_name: "Activate Account",
       button_function() {
-        console.log("Activate Account?....");
+        if (!displayComp) displayCompHandler();
+        setCompName("Activate Account");
+        setDisplayInnerComp("search-apply");
+        setProps(ACCOUNTS);
       },
     },
     {
@@ -50,6 +56,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_name: "Create Item",
       button_function() {
         if (!displayComp) displayCompHandler();
+        setCompName("Create Item");
         setDisplayInnerComp("create");
       },
     },
@@ -88,7 +95,8 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_function() {
         if (!displayComp) displayCompHandler();
         setDisplayInnerComp("table");
-        setTable(INVENTORY_LIST);
+        setCompName("Create Item");
+        setProps(INVENTORY_LIST);
       },
     },
     {
@@ -96,7 +104,8 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_function() {
         if (!displayComp) displayCompHandler();
         setDisplayInnerComp("table");
-        setTable(ACCOUNTS);
+        setCompName("Create Item");
+        setProps(ACCOUNTS);
       },
     },
     {
@@ -122,7 +131,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
           <div className="twelve wide column min-margin">
             {displayComp ? (
               <div className="ui segment new-components">
-                {displayComponent(displayInnerComp)}
+                {displayComponent(displayInnerComp, props, compName)}
               </div>
             ) : null}
           </div>
