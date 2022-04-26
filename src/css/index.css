@@ -5,3 +5,10 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 400px) {
+  html,
+  body {
+    min-width: 400px;
+  }
+}

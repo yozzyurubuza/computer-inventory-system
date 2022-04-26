@@ -1,3 +1,7 @@
 .ui.top.attached.label.greeting-msg {
   font-size: 14px;
 }
+
+.label-margin {
+  margin-bottom: 40px;
+}

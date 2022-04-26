@@ -25,12 +25,7 @@ const Buttons = ({ account_type, BUTTON_FUNCTIONS_MENU }) => {
     );
   });
 
-  return (
-    <div>
-      <div></div>
-      {generateButtons}
-    </div>
-  );
+  return <div>{generateButtons}</div>;
 };
 
 export default Buttons;

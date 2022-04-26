@@ -5,7 +5,9 @@ import "../css/Menu.css";
 const Menu = ({ accountDetails, BUTTON_FUNCTIONS_MENU }) => {
   return (
     <div>
-      <div className="ui top attached label greeting-msg">{`Hello, ${accountDetails.username}`}</div>
+      <div className="label-margin">
+        <label className="ui top attached label greeting-msg">{`Hello, ${accountDetails.username}`}</label>
+      </div>
       <div>
         <Buttons
           account_type={accountDetails.account_type}

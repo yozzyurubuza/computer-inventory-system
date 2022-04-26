@@ -120,9 +120,9 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
 
   return (
     <div className="ui container">
-      <div className="ui grid">
+      <div className="ui relaxed grid margin">
         <div className="ui row">
-          <div className="four wide column">
+          <div className="four wide column padding">
             <div className="ui segment menu">
               <Menu
                 accountDetails={accountDetails}
