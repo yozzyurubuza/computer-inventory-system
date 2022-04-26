@@ -19,7 +19,8 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
 
   //Function to know what component to display in the right side
   const displayComponent = (string, props, compName) => {
-    if (string === "table") return <Table tableArray={props} />;
+    if (string === "table")
+      return <Table tableArray={props} compName={compName} />;
 
     if (string === "create")
       return <Create inventoryList={props} compName={compName} />;
@@ -96,7 +97,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_function() {
         if (!displayComp) displayCompHandler();
         setDisplayInnerComp("table");
-        setCompName("Create Item");
+        setCompName("View Inventory");
         setProps(INVENTORY_LIST);
       },
     },
@@ -105,7 +106,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
       button_function() {
         if (!displayComp) displayCompHandler();
         setDisplayInnerComp("table");
-        setCompName("Create Item");
+        setCompName("View User List");
         setProps(ACCOUNTS);
       },
     },
