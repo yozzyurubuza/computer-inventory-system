@@ -11,7 +11,7 @@ const Create = ({ inventoryList, compName }) => {
       item_id: inventoryList.at(-1).item_id + 1,
       item_image: e.target.item_image.value,
       item_name: e.target.item_name.value,
-      active: Boolean(e.target.activate.value),
+      active: e.target.activate.value,
       quantity: e.target.quantity.value,
     };
 

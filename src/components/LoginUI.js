@@ -58,6 +58,7 @@ const LoginUI = ({ accountDetails, loginHandler }) => {
         if (!displayComp) displayCompHandler();
         setCompName("Create Item");
         setDisplayInnerComp("create");
+        setProps(INVENTORY_LIST);
       },
     },
     {
