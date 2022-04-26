@@ -27,7 +27,7 @@ const Buttons = ({ account_type, BUTTON_FUNCTIONS_MENU }) => {
 
   return (
     <div>
-      <div className="ui vertical basic buttons"></div>
+      <div></div>
       {generateButtons}
     </div>
   );
